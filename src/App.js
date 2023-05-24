@@ -1,16 +1,33 @@
-import './App.css';
-import Map from './Components/Card/Map';
-import Left_Sidebar from './Components/Sidebar/Left_Sidebar';
-import Header from './Components/Header/Header';
-import Footer from './Components/Footer/Footer';
-import Signin from './Pages/Signin'
-import Signup from './Pages/Signup';
-import React, {useState} from 'react';
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Card from "./Components/Card/Card";
+import Header from "./Components/Header/Header";
+import Login from "./Pages/Login";
+import Signup from "./Pages/Signup";
+import LeftSidebar from "./Components/Sidebar/LeftSidebar";
+import Footer from "./Components/Footer/Footer";
+import "./App.css";
 
 export default function App() {
   return (
-    <>
-    </>
+    <Router>
+      <>
+        <Header />
+        <Routes>
+          <Route path="/Pages/Login" element={<Login />} />
+          <Route path="/Pages/Signup" element={<Signup />} />
+          <Route 
+            path="/" 
+            element={
+              <>
+                <LeftSidebar />
+                <Card />
+              </>
+            }  
+          />
+        </Routes>
+        <Footer />
+      </>
+    </Router>
   );
 }
