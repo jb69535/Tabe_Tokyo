@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Card from "./Components/Card/Card";
+import Card from "../src/Components/Card/Card";
 import Header from "./Components/Header/Header";
 import Login from "./Pages/Login";
 import Signup from "./Pages/Signup";
@@ -16,14 +16,14 @@ export default function App() {
         <Routes>
           <Route path="/Pages/Login" element={<Login />} />
           <Route path="/Pages/Signup" element={<Signup />} />
-          <Route 
-            path="/" 
+          <Route
+            path="/"
             element={
               <>
                 <LeftSidebar />
                 <Card />
               </>
-            }  
+            }
           />
         </Routes>
         <Footer />

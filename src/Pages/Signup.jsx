@@ -1,33 +1,6 @@
-
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-
-export default function SignUp({ setLoggedIn }) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-
-  return (
-    <div className="sign-in-container">
-      <form >
-        <h1>Create an Account</h1>
-        <input
-          type="email"
-          placeholder="YourId@email.com"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        ></input>
-        <input
-          type="password"
-          placeholder="Password should be at least 6 characters"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        ></input>
-        <button type="submit">Sign Up</button>
-      </form>
-      <p>
-        Already have an account? <Link to="/Pages/Login">Log in</Link>
-      </p>
-    </div>
-  );
+export default function Signup() {
+    return (
+        <>
+        </>
+    );
 }
