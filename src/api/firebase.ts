@@ -10,6 +10,7 @@ import { getAuth } from "firebase/auth"
 const firebaseConfig = {
   apiKey: "AIzaSyAczS-206ks4-puqpunDs_TBUx2VoWDnVw",
   authDomain: "tabetokyo-4d168.firebaseapp.com",
+  databaseURL: "https://tabetokyo-4d168-default-rtdb.firebaseio.com",
   projectId: "tabetokyo-4d168",
   storageBucket: "tabetokyo-4d168.appspot.com",
   messagingSenderId: "90557252963",

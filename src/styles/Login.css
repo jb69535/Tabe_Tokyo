@@ -1,0 +1,91 @@
+/* Global */
+:root {
+  /* Color */
+  --color-white: #ffffff;
+  --color-grey-white: #f7f6ee;
+  --color-light-grey: #bfbfbf;
+  --color-light-pink: #ffdada;
+  --color-light-yellow: #fffec3;
+  --color-light-orange: #fad665;
+  --color-black: #000000;
+  /* Font Size */
+  --font-large: 40px;
+  --font-medium: 22px;
+  --font-regular: 15px;
+  --font-small: 12px;
+  --font-micro: 10px;
+  /* Font Weight */
+  --weight-bold: 700;
+  --weight-semi-bold: 600;
+  --weight-regular: 400;
+  /* Size */
+  --size-border-radius: 4px;
+}
+
+body {
+    background: url('../assets/background.jpg');
+    margin: 0px;
+    cursor: default;
+    font-family: "Audiowide", sans-serif;
+    display: flex;
+}
+
+.login_Container {
+    position: relative;
+    background-color: var(--color-grey-white);
+    display: grid;
+    margin: 0px;
+    max-width: 500px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: var(--size-border-radius);
+}
+
+label {
+    font-size: var(--font-regular);
+    color: var(--color-black);
+    font-weight: var(--weight-regular);
+}
+
+/* Input Field Styles */
+input[type="email"],
+input[type="password"] {
+  width: 80%;
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #cccccc;
+  border-radius: var(--size-border-radius);
+  font-size: 16px;
+}
+
+/* Submit Button Styles */
+button[type="submit"] {
+  width: 100%;
+  margin: 20px 0 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #000000;
+  color: #ffffff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #222222;
+}
+
+/* Sign Up Link Styles */
+p {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+a {
+  color: #000000;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #222222;
+  text-decoration: none;
+}
