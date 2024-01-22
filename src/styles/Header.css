@@ -1,7 +1,93 @@
+/* Global */
+:root {
+    /* Color */
+    --color-white: #ffffff;
+    --color-grey-white: #f7f6ee;
+    --color-light-grey: #bfbfbf;
+    --color-light-pink: #ffdada;
+    --color-light-yellow: #fffec3;
+    --color-light-orange: #fad665;
+    --color-black: #000000;
+    /* Font Size */
+    --font-large: 40px;
+    --font-medium: 22px;
+    --font-regular: 15px;
+    --font-small: 12px;
+    --font-micro: 10px;
+    /* Font Weight */
+    --weight-bold: 700;
+    --weight-semi-bold: 600;
+    --weight-regular: 400;
+    /* Size */
+    --size-border-radius: 4px;
+    /* Animation */
+    --animation-duration: 400ms;
+  }
+
 .header {
+    position: relative; 
     display: flex;
 }
 
 .logo img {
     height: 50px;
+}
+
+.toggleBtn {
+    position: absolute;
+    top: 24px;
+    right: 32px;
+    font-size: 24px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    background-color: transparent;
+    
+}
+
+.toggleBtn :hover {
+    transform: scale(1.1);
+    transition: all var(--animation-duration) ease;
+}
+
+.dropdownMenu {
+    position: absolute; /* Position it relative to its parent */
+    right: 0; /* Align to the right side of the header */
+    top: 100%; /* Position it below the toggle button */
+    background-color: transparent; /* Background color */
+    border: 1px solid var(--color-black); /* Border */
+    border-radius: var(--size-border-radius); /* Border radius */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* Adding some shadow for depth */
+    z-index: 1; /* Ensure it's above other content */
+}
+
+.dropdownMenu a,
+.dropdownMenu button {
+    display: block; /* Make each item a block for full-width interaction */
+    padding: 8px 16px; /* Padding for each item */
+    color: var(--color-black); /* Text color */
+    text-decoration: none; /* Remove underline from links */
+    font-size: var(--font-regular); /* Font size */
+    border-bottom: 1px solid var(--color-light-grey); /* Border between items */
+}
+
+.dropdownMenu button {
+    background: none; /* No background for buttons */
+    border: none; /* No border for buttons */
+    cursor: pointer; /* Cursor pointer */
+    text-align: left; /* Align text to the left */
+}
+
+.dropdownMenu a:hover,
+.dropdownMenu button:hover {
+    background-color: var(--color-light-grey); /* Change background on hover */
+}
+
+/* Hide dropdown initially */
+.dropdownMenu {
+    display: none;
+}
+
+/* Show dropdown when toggle button is clicked */
+.toggleBtn.active + .dropdownMenu {
+    display: block;
 }
