@@ -5,8 +5,10 @@
         "Firestore",
         "fontawesome",
         "fortawesome",
+        "googlemaps",
         "puqpun",
         "Signup",
-        "tabetokyo"
+        "tabetokyo",
+        "webfonts"
     ]
 }
