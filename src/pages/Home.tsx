@@ -5,8 +5,17 @@ import '../styles/Home.css';
 const Home = () => {
   // Sample data for restaurants
   const restaurants = [
-    { name: "Restaurant 1", latitude: 40.712776, longitude: -74.005974 },
-    // ... more restaurant data
+    {
+      name: "Restaurant 1",
+      latitude: 40.712776,
+      longitude: -74.005974,
+      reviews: [
+        // Array of review objects
+        { id: "1", author: "Reviewer 1", rating: 4, comment: "Great place!" },
+        // More reviews...
+      ],
+    },
+    // More restaurants...
   ];
 
   return (
