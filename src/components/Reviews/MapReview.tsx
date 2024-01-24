@@ -2,28 +2,39 @@
 
 import React from "react";
 import { GoogleMap, Marker, LoadScript } from "@react-google-maps/api";
-import { Restaurant } from "./types";
+import { Restaurant, defaultLocation } from "./types";
 import "../../styles/MapReview.css";
 
-// Define the type for your component's props
 interface MapReviewProps {
-  restaurants: Restaurant[]; // Ensure Restaurant is defined in your types file
+  restaurants: Restaurant[];
+  currentLocation: { latitude: number, longitude: number } | null;
 }
 
-const MapReview: React.FC<MapReviewProps> = ({ restaurants }) => {
-  const mapStyles = { width: "600px", height: "400px" };
-  const defaultCenter = { lat: 35.681236, lng: 139.767125 };
+const MapReview: React.FC<MapReviewProps> = ({ restaurants, currentLocation }) => {
+  const mapStyles = { width: "100%", height: "100%" };
+  const defaultCenter = { lat: defaultLocation.latitude, lng: defaultLocation.longitude };
 
-  console.log("loaded");
+  // Determine the center of the map based on currentLocation
+  const center = currentLocation ? { lat: currentLocation.latitude, lng: currentLocation.longitude } : defaultCenter;
 
   return (
     <LoadScript googleMapsApiKey="AIzaSyAczS-206ks4-puqpunDs_TBUx2VoWDnVw">
       <GoogleMap
         mapContainerStyle={mapStyles}
         zoom={14}
-        center={defaultCenter}
+        center={center} // Set the center to the current location or the default center
       >
-        {restaurants.map((restaurant: Restaurant, index: number) => (
+        {/* If currentLocation is set, display a marker there */}
+        {currentLocation && (
+          <Marker
+            position={{
+              lat: currentLocation.latitude,
+              lng: currentLocation.longitude,
+            }}
+          />
+        )}
+        {/* Other markers for restaurants */}
+        {restaurants.map((restaurant, index) => (
           <Marker
             key={index}
             position={{ lat: restaurant.latitude, lng: restaurant.longitude }}
@@ -35,3 +46,4 @@ const MapReview: React.FC<MapReviewProps> = ({ restaurants }) => {
 };
 
 export default MapReview;
+

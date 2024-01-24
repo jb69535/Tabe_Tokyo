@@ -31,9 +31,10 @@
 }
 
 .MapContainer {
-    flex: 0 0 80%;
+    flex: 0 0 70%;
+    height: 400px;
 }
 
 .SidebarContainer {
-    flex: 0 0 20%;
+    flex: 0 0 30%;
 }
