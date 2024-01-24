@@ -1,3 +1,5 @@
+// MapReview.tsx
+
 import React from "react";
 import { GoogleMap, Marker, LoadScript } from "@react-google-maps/api";
 import { Restaurant } from "./types";
@@ -9,8 +11,10 @@ interface MapReviewProps {
 }
 
 const MapReview: React.FC<MapReviewProps> = ({ restaurants }) => {
-  const mapStyles = { width: "60%", height: "40%" };
+  const mapStyles = { width: "600px", height: "400px" };
   const defaultCenter = { lat: 35.681236, lng: 139.767125 };
+
+  console.log("loaded");
 
   return (
     <LoadScript googleMapsApiKey="AIzaSyAczS-206ks4-puqpunDs_TBUx2VoWDnVw">

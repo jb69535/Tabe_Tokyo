@@ -1,6 +1,10 @@
-import React from 'react';
-import MapReview from '../components/Reviews/MapReview';
-import '../styles/Home.css';
+// Home.tsx
+
+import React from "react";
+import MapReview from "../components/Reviews/MapReview";
+import ReviewSidebar from "../components/Reviews/ReviewSidebar";
+import { Location } from "../components/Reviews/types"
+import "../styles/Home.css";
 
 const Home = () => {
   // Sample data for restaurants
@@ -18,12 +22,18 @@ const Home = () => {
     // More restaurants...
   ];
 
+  const handleAddLocation = (location: Location) => {
+    console.log("Location added: ", location);
+  }
+
   return (
     <div className="HomeContainer">
       <div className="MapContainer">
         <MapReview restaurants={restaurants} />
       </div>
-      {/* Add other components as needed */}
+      <div className="SidebarContainer">
+        <ReviewSidebar restaurant={restaurants[0]} onAddLocation={handleAddLocation} />
+      </div>
     </div>
   );
 };
