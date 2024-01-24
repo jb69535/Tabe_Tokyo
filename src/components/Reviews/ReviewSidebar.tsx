@@ -1,7 +1,7 @@
 // ReviewSidebar.tsx
 
 import React, { useState } from 'react';
-import { Restaurant, Review } from './types';
+import { Restaurant } from './types';
 import "../../styles/ReviewSidebar.css";
 
 interface ReviewSidebarProps {
@@ -11,7 +11,6 @@ interface ReviewSidebarProps {
 
 const ReviewSidebar: React.FC<ReviewSidebarProps> = ({ restaurant, onAddLocation }) => {
 
-  const [error, setError] = useState("");
   const [addingReview, setAddingReview] = useState(false);
   const handleAddClick = () => {
     setAddingReview(true);
