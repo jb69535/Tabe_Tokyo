@@ -7,15 +7,23 @@ import "../../styles/MapReview.css";
 
 interface MapReviewProps {
   restaurants: Restaurant[];
-  currentLocation: { latitude: number, longitude: number } | null;
+  currentLocation: { latitude: number; longitude: number } | null;
 }
 
-const MapReview: React.FC<MapReviewProps> = ({ restaurants, currentLocation }) => {
+const MapReview: React.FC<MapReviewProps> = ({
+  restaurants,
+  currentLocation,
+}) => {
   const mapStyles = { width: "100%", height: "100%" };
-  const defaultCenter = { lat: defaultLocation.latitude, lng: defaultLocation.longitude };
+  const defaultCenter = {
+    lat: defaultLocation.latitude,
+    lng: defaultLocation.longitude,
+  };
 
   // Determine the center of the map based on currentLocation
-  const center = currentLocation ? { lat: currentLocation.latitude, lng: currentLocation.longitude } : defaultCenter;
+  const center = currentLocation
+    ? { lat: currentLocation.latitude, lng: currentLocation.longitude }
+    : defaultCenter;
 
   return (
     <LoadScript googleMapsApiKey="AIzaSyAczS-206ks4-puqpunDs_TBUx2VoWDnVw">
@@ -46,4 +54,3 @@ const MapReview: React.FC<MapReviewProps> = ({ restaurants, currentLocation }) =
 };
 
 export default MapReview;
-

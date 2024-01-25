@@ -21,5 +21,5 @@ export interface Location {
 
 export const defaultLocation: Location = {
   latitude: 35.681236,
-  longitude: 139.767125
-}
+  longitude: 139.767125,
+};
