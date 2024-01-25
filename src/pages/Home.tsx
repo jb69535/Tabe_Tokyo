@@ -7,6 +7,7 @@ import {
   Location,
   Restaurant,
   defaultLocation,
+  GooglePlacesResponse
 } from "../components/Reviews/types";
 import "../styles/Home.css";
 
@@ -37,17 +38,9 @@ const Home = () => {
 
   const searchPlaces = async (query: string) => {
     try {
-      const response = await fetch(
-        `http://localhost:3001/search?q=${encodeURIComponent(query)}`
-      );
+      const response = await fetch(`http://localhost:3001/search?q=${encodeURIComponent(query)}`);
       const data = await response.json();
-
-      if (data.candidates.length > 0) {
-        const location = data.candidates[0].geometry.location;
-        return { latitude: location.lat, longitude: location.lng };
-      } else {
-        return null;
-      }
+      return data;
     } catch (error) {
       console.error("Error fetching places:", error);
       return null;
@@ -59,10 +52,8 @@ const Home = () => {
     if (location) {
       setCurrentLocation(location);
     } else {
-      <h3>
-        Cannot find Restaurant <br />
-        Do you want to add leave a new review?
-      </h3>;
+      console.log("No location found for the given query.");
+      // Handle the case when no location is found
     }
   };
 

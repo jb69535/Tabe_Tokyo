@@ -23,3 +23,16 @@ export const defaultLocation: Location = {
   latitude: 35.681236,
   longitude: 139.767125,
 };
+
+// Add this for handling the response from Google Places API
+export interface GooglePlacesResponse {
+  candidates: Array<{
+    geometry: {
+      location: {
+        lat: number;
+        lng: number;
+      };
+    };
+  }>;
+  // ... other expected properties
+}
