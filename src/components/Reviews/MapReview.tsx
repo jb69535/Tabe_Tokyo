@@ -1,7 +1,7 @@
 // MapReview.tsx
 
 import React from "react";
-import { GoogleMap, Marker, LoadScript } from "@react-google-maps/api";
+import { GoogleMap, Marker } from "@react-google-maps/api";
 import { Restaurant, defaultLocation } from "./types";
 import "../../styles/MapReview.css";
 
@@ -10,27 +10,24 @@ interface MapReviewProps {
   currentLocation: { latitude: number; longitude: number } | null;
 }
 
-const MapReview: React.FC<MapReviewProps> = ({
-  restaurants,
-  currentLocation,
-}) => {
+const MapReview: React.FC<MapReviewProps> = ({ restaurants, currentLocation }) => {
   const mapStyles = { width: "100%", height: "100%" };
-  const defaultCenter = {
-    lat: defaultLocation.latitude,
-    lng: defaultLocation.longitude,
-  };
+  
+  // Validate currentLocation before rendering
+  if (currentLocation && (typeof currentLocation.latitude !== 'number' || typeof currentLocation.longitude !== 'number')) {
+    console.error("Invalid current location data:", currentLocation);
+    return <div>Invalid location data</div>;
+  }
 
-  // Determine the center of the map based on currentLocation
   const center = currentLocation
     ? { lat: currentLocation.latitude, lng: currentLocation.longitude }
-    : defaultCenter;
+    : { lat: defaultLocation.latitude, lng: defaultLocation.longitude };
 
   return (
-    <LoadScript googleMapsApiKey="AIzaSyAczS-206ks4-puqpunDs_TBUx2VoWDnVw">
       <GoogleMap
         mapContainerStyle={mapStyles}
         zoom={14}
-        center={center} // Set the center to the current location or the default center
+        center={center}
       >
         {/* If currentLocation is set, display a marker there */}
         {currentLocation && (
@@ -49,7 +46,6 @@ const MapReview: React.FC<MapReviewProps> = ({
           />
         ))}
       </GoogleMap>
-    </LoadScript>
   );
 };
 

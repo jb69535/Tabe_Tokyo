@@ -6,8 +6,7 @@ import ReviewSidebar from "../components/Reviews/ReviewSidebar";
 import {
   Location,
   Restaurant,
-  defaultLocation,
-  GooglePlacesResponse
+  defaultLocation
 } from "../components/Reviews/types";
 import "../styles/Home.css";
 
@@ -49,13 +48,13 @@ const Home = () => {
 
   const handleSearch = async (query: string) => {
     const location = await searchPlaces(query);
-    if (location) {
+    if (location && typeof location.latitude === 'number' && typeof location.longitude === 'number') {
+      console.log("Valid location found:", location);
       setCurrentLocation(location);
     } else {
-      console.log("No location found for the given query.");
-      // Handle the case when no location is found
+      console.log("No valid location found for the given query. Received data:", location);
     }
-  };
+  };  
 
   return (
     <div className="HomeContainer">
